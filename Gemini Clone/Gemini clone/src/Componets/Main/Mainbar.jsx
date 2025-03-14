@@ -12,26 +12,20 @@ const Mainbar = () => {
       <div className="main-container">
         <div className="greet">
           <p>
-            <span>Hello Vikalp</span>
+            <span>Hello, Vikalp</span>
           </p>
-          <p>How can I help you today?</p>
         </div>
-        <div className="cards">
-          <div className="card">
-            <p>Suggest some places?</p>
-            <img src={assets.compass_icon} alt="question" />
+        <div className="main-bottom">
+          <div className="search-box">
+            <input type="text" placeholder="Enter a Prompt here" />
+            <div className="icon">
+              <img src={assets.gallery_icon} alt="gallery" />
+              <img src={assets.mic_icon} alt="mic" />
+              <img src={assets.send_icon} alt="send" />
+            </div>
           </div>
-          <div className="card">
-            <p>Summarize about poverty</p>
-            <img src={assets.bulb_icon} alt="question" />
-          </div>
-          <div className="card">
-            <p>What is the capital of India?</p>
-            <img src={assets.message_icon} alt="question" />
-          </div>
-          <div className="card">
-            <p>What is React.js</p>
-            <img src={assets.code_icon} alt="question" />
+          <div className="bottom-info">
+            <p>Gemini can make mistakes,so double check it.</p>
           </div>
         </div>
       </div>
