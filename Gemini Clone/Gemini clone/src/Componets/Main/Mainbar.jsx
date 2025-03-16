@@ -21,11 +21,29 @@ const Mainbar = () => {
         <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
-        <div className="greet">
-          <p>
-            <span>Hello, Vikalp</span>
-          </p>
-        </div>
+        {!showResult ? (
+          <>
+            <div className="greet">
+              <p>
+                <span>Hello, Vikalp</span>
+              </p>
+            </div>
+          </>
+        ) : (
+          <div className="result">
+            <div className="result-title">
+              <img src={assets.user_icon} alt="" />
+              <p>{recentPrompt}</p>
+            </div>
+            <div className="result-data">
+              <img src={assets.gemini_icon} alt="" />
+              <p dangerouslySetInnerHTML={{ __html: resultData }}>
+                {/* {resultData} */}
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="main-bottom">
           <div className="search-box">
             <input
@@ -37,7 +55,11 @@ const Mainbar = () => {
             <div className="icon">
               <img src={assets.gallery_icon} alt="gallery" />
               <img src={assets.mic_icon} alt="mic" />
-              <img src={assets.send_icon} alt="send" />
+              <img
+                onClick={() => onSent(input)}
+                src={assets.send_icon}
+                alt="send"
+              />
             </div>
           </div>
           <div className="bottom-info">
