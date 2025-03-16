@@ -1,7 +1,3 @@
-import * as dotenv from "dotenv";
-
-dotenv.config();
-
 import {
   GoogleGenerativeAI,
   HarmCategory,
@@ -10,11 +6,6 @@ import {
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-if (!apiKey) {
-  throw new Error(
-    "API key is missing. Please set API_KEY in your environment variables."
-  );
-}
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
