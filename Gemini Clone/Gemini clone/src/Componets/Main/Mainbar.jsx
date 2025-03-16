@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { assets } from "../../assets/assets.js";
 import "./Mainbar.css";
+import { Context } from "../../context/context.jsx";
 
 const Mainbar = () => {
+  const {
+    onSent,
+    recentPrompt,
+    showResult,
+    loading,
+    resultData,
+    setInput,
+    input,
+  } = useContext(Context);
+
   return (
     <div className="main">
       <div className="nav">
@@ -17,7 +28,12 @@ const Mainbar = () => {
         </div>
         <div className="main-bottom">
           <div className="search-box">
-            <input type="text" placeholder="Enter a Prompt here" />
+            <input
+              onChange={(e) => setInput(e.target.value)}
+              value={input}
+              type="text"
+              placeholder="Enter a Prompt here"
+            />
             <div className="icon">
               <img src={assets.gallery_icon} alt="gallery" />
               <img src={assets.mic_icon} alt="mic" />
