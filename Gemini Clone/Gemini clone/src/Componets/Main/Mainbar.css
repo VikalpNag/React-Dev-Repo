@@ -106,7 +106,7 @@
 }
 
 .result::-webkit-scrollbar {
-  display: none;
+  display: ruby-base;
 }
 
 .result-title {
