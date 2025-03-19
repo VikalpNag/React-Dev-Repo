@@ -21,7 +21,7 @@ const Sidebar = () => {
         <SidebarButtons title="Player" to="/player" icon={<FaPlay />} />
         <SidebarButtons
           title="Favorites"
-          to="/favorite"
+          to="/favorites"
           icon={<MdFavorite />}
         />
         <SidebarButtons title="Library" to="/" icon={<IoLibrary />} />

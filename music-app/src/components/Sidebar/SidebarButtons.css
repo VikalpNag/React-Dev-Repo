@@ -12,7 +12,8 @@ a {
   justify-content: center;
   align-items: center;
   margin: 5px auto;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
+  background-color: rgba(244, 187, 146, 0.01);
   &:hover {
     color: white;
     transform: scale(1.05);
