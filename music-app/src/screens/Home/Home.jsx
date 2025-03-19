@@ -8,6 +8,7 @@ import Trending from "../Trending/Trending";
 import "./home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Login from "../auth/Login";
+import { setClientToken } from "../../spotify";
 
 const Home = () => {
   const [token, setToken] = useState("");
@@ -20,8 +21,10 @@ const Home = () => {
       const _token = hash.split("&")[0].split("=")[1];
       window.localStorage.setItem("token", _token);
       setToken(_token);
+      setClientToken(_token);
     } else {
       setToken(token);
+      setClientToken(token);
     }
   }, []);
 
