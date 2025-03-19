@@ -16,7 +16,7 @@ a {
   background-color: rgba(244, 187, 146, 0.01);
   &:hover {
     color: white;
-    transform: scale(1.05);
+    transform: scale(1.09);
   }
 }
 
