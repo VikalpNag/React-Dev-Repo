@@ -12,9 +12,10 @@ a {
   justify-content: center;
   align-items: center;
   margin: 5px auto;
+  transition: all 0.2s ease;
   &:hover {
     color: white;
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 }
 
