@@ -7,11 +7,13 @@ import Player from "../Player/Player";
 import Trending from "../Trending/Trending";
 import "./home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Login from "../auth/Login";
 
 const Home = () => {
   return (
     <Router>
       <div className="main-body">
+        {/* <Login /> */}
         <Sidebar />
         <Routes>
           <Route path="/" element={<Library />} />
