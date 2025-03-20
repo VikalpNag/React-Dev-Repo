@@ -42,6 +42,7 @@
 .playlist-image {
   width: 100%;
   border-radius: 15px;
+  aspect-ratio: 1;
 }
 
 .playlist-title {
