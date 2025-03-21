@@ -21,7 +21,7 @@ const Library = () => {
   };
 
   return (
-    <div className="screen-container">
+    <div className="screen-container sc2">
       <div className="library-body">
         {playlists?.map((playlist) => (
           <div
@@ -37,7 +37,7 @@ const Library = () => {
             <p className="playlist-title">{playlist.name.substring(0, 18)}</p>
             <p className="playlist-subtitle">{playlist.tracks.total} Songs</p>
             <div className="playlist-fade">
-              <IconContext.Provider value={{ size: "40px", color: "#E99D72" }}>
+              <IconContext.Provider value={{ size: "40px", color: "" }}>
                 <AiFillPlayCircle />
               </IconContext.Provider>
             </div>
