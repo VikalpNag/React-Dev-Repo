@@ -1,8 +1,3 @@
-.screen-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 .library-body {
   width: 94%;
   height: 90%;
