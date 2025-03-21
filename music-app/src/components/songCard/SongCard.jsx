@@ -3,10 +3,10 @@ import "./songCard.css";
 import AlbumImage from "./AlbumImage";
 import AlbumInfo from "./AlbumInfo";
 
-const SongCard = (album) => {
+const SongCard = ({ album }) => {
   return (
     <div className="songCard-body">
-      <AlbumImage url={album.images[0].url} />
+      <AlbumImage url={album?.images[0]?.url} />
       <AlbumInfo />
     </div>
   );
