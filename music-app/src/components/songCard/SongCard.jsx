@@ -7,7 +7,7 @@ const SongCard = ({ album }) => {
   return (
     <div className="songCard-body flex">
       <AlbumImage url={album?.images[0]?.url} />
-      <AlbumInfo />
+      <AlbumInfo album={album} />
     </div>
   );
 };
