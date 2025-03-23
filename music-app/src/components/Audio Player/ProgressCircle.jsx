@@ -4,7 +4,7 @@ import "./progressCircle.css";
 const Circle = ({ color, percentage, size, strokeWidth }) => {
   const radius = size / 2 - 10;
   const circ = 2 * Math.PI * radius - 20;
-  const strokePct = (100 - Math.round(percentage) * circ) / 100;
+  const strokePct = ((100 - Math.round(percentage)) * circ) / 100;
 
   return (
     <circle
@@ -15,7 +15,7 @@ const Circle = ({ color, percentage, size, strokeWidth }) => {
       stroke={strokePct !== circ ? color : ""}
       strokeWidth={strokeWidth}
       strokeDasharray={circ}
-      strokeDashoffset={percentage ? strokePct : 0}
+      strokeDashOffset={percentage ? strokePct : 0}
       strokeLinecap="round"
     ></circle>
   );
@@ -40,6 +40,32 @@ export default function ProgressCircle({
             size={size}
           />
         </g>
+        <defs>
+          <clipPath>
+            <circle cx="50%" cy="50%" r={size / 2 - 50} fill="#FFFFFF" />
+          </clipPath>
+          <clipPath id="myInnerCircle">
+            <circle cx="50%" cy="50%" r={size / 2 - 50} fill="#FFFFFF" />
+          </clipPath>
+        </defs>
+        <image
+          className={isPlaying ? "active" : ""}
+          x={15}
+          y={15}
+          width={2 * (size / 2) - 30}
+          height={2 * (size / 2) - 30}
+          href="https://pngimg.com/uploads/vinyl/vinyl_PNG109.png"
+          clipPath="url(#myCircle)"
+        />
+        <image
+          className={isPlaying ? "active" : ""}
+          x={50}
+          y={50}
+          width={2 * (size / 2) - 100}
+          height={2 * (size / 2) - 100}
+          href={image}
+          clipPath="url(#myInnerCircle)"
+        />
       </svg>
     </div>
   );
