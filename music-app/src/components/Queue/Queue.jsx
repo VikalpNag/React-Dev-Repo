@@ -9,10 +9,13 @@ const Queue = ({ tracks, setCurrentIndex }) => {
       <div className="queue flex">
         <p className="upNext">Up Next</p>
         <div className="queue-list">
-          {tracks.map((track) => (
-            <div>
-              <p className="trackName">{track?.track?.name}</p>
-              <p></p>
+          {tracks.map((track, index) => (
+            <div
+              className="queue-item flex"
+              onClick={() => setCurrentIndex(index)}
+            >
+              <p className="track-name">{track?.track?.name}</p>
+              <p>0:30</p>
             </div>
           ))}
         </div>
