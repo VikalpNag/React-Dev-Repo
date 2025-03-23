@@ -39,6 +39,9 @@
   scroll-behavior: smooth;
 }
 
+.queue-list::-webkit-scrollbar {
+  display: none;
+}
 .queue-item {
   justify-content: space-between;
   width: 100%;
