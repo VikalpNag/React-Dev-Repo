@@ -27,7 +27,7 @@ const Player = () => {
       <div className="left-player-body"></div>
       <div className="right-player-body">
         <SongCard album={currentTrack.album} />
-        <Queue />
+        <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
       </div>
     </div>
   );

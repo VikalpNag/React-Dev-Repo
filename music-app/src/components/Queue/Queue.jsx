@@ -1,8 +1,24 @@
 import React from "react";
 import "./queue.css";
 
-const Queue = () => {
-  return <div>Queue</div>;
+const Queue = ({ tracks, setCurrentIndex }) => {
+  console.log(tracks);
+
+  return (
+    <div className="queue-container flex">
+      <div className="queue flex">
+        <p className="upNext">Up Next</p>
+        <div className="queue-list">
+          {tracks.map((track) => (
+            <div>
+              <p className="trackName">{track?.track?.name}</p>
+              <p></p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Queue;
