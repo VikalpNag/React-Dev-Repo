@@ -33,7 +33,12 @@ const Player = () => {
     <div className="screen-container flex">
       <div className="left-player-body">
         {currentTrack && currentTrack.album && (
-          <AudioPlayer currentTrack={currentTrack} isPlaying={true} />
+          <AudioPlayer
+            currentTrack={currentTrack}
+            isPlaying={true}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
         )}
       </div>
       <div className="right-player-body">

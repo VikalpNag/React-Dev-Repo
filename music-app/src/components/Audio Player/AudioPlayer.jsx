@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./audioPlayer.css";
 import ProgressCircle from "./ProgressCircle";
 import Controls from "./Controls.jsx";
 import WaveAnimation from "./WaveAnimation.jsx";
 
-const AudioPlayer = ({ currentTrack, isPlaying }) => {
+const AudioPlayer = ({
+  currentTrack,
+
+  currentIndex,
+  setCurrentIndex,
+  total,
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [trackProgress, setTrackProgress] = useState(0);
+  var audioSrc = total[currentIndex]?.track.preview_url;
+
+  const audioRef = useRef(new Audio(total[0]?.track.preview_url));
+  const intervalRef = useRef();
+  const isReady = useRef(false);
+  const { duration } = audioRef.current;
+
   const artists = [];
   currentTrack?.album?.artists.forEach((artist) => {
     artists.push(artist.name);
