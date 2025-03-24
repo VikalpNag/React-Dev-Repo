@@ -33,7 +33,7 @@ const Player = () => {
     <div className="screen-container flex">
       <div className="left-player-body">
         {currentTrack && currentTrack.album && (
-          <AudioPlayer currentTrack={currentTrack} />
+          <AudioPlayer currentTrack={currentTrack} isPlaying={true} />
         )}
       </div>
       <div className="right-player-body">
