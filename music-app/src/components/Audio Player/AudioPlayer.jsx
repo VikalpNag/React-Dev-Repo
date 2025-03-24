@@ -11,15 +11,16 @@ const AudioPlayer = ({
   setCurrentIndex,
   total,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [trackProgress, setTrackProgress] = useState(0);
   var audioSrc = total[currentIndex]?.track.preview_url;
 
-  const audioRef = useRef(new Audio(total[0]?.track.preview_url));
+  const audioRef = useRef(new Audio(audioSrc));
   const intervalRef = useRef();
   const isReady = useRef(false);
   const { duration } = audioRef.current;
   const currentPercentage = duration ? (trackProgress / duration) * 100 : 0;
+  console.log(currentPercentage);
   const startTimer = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -43,6 +44,11 @@ const AudioPlayer = ({
   }, [isPlaying]);
 
   useEffect(() => {
+    if (!audioSrc) return; // Prevent errors if no preview URL
+    audioRef.current.pause();
+    audioRef.current = new Audio(audioSrc);
+    setTrackProgress(0);
+
     audioRef.current.pause();
     audioRef.current = new Audio(audioSrc);
     setTrackProgress(audioRef.current.currentTime);
@@ -53,7 +59,7 @@ const AudioPlayer = ({
     } else {
       isReady.current = true;
     }
-  }, [currentIndex]);
+  }, [audioSrc, currentIndex]);
 
   useEffect(() => {
     return () => {
@@ -66,6 +72,14 @@ const AudioPlayer = ({
     if (currentIndex < total.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else setCurrentIndex(0);
+  };
+
+  const handlePrev = () => {
+    if (currentIndex - 1 < 0) {
+      setCurrentIndex(total.length - 1);
+    } else {
+      currentIndex(currentIndex - 1);
+    }
   };
 
   const artists = [];
@@ -90,15 +104,15 @@ const AudioPlayer = ({
         <div className="player-right-bottom flex">
           <div className="song-duration flex">
             <p className="duration">0:01</p>
-            <WaveAnimation isPlaying={true} />
+            <WaveAnimation isPlaying={isPlaying} />
             <p className="duration">0:30</p>
           </div>
           <Controls
-          // isPlaying={isPlaying}
-          // setIsPlaying={setIsPlaying}
-          // handleNext={handleNext}
-          // handlePrev={handlePrev}
-          // total={total}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+            total={total}
           />
         </div>
       </div>
