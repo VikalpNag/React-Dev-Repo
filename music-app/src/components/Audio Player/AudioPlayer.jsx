@@ -83,6 +83,10 @@ const AudioPlayer = ({
     );
   };
 
+  const addZero = (n) => {
+    return n > 9 ? "" + n : "0" + n;
+  };
+
   const artists = currentTrack?.album?.artists
     .map((artist) => artist.name)
     .join(" | ");
@@ -103,7 +107,7 @@ const AudioPlayer = ({
         <p className="song-artist">{artists}</p>
         <div className="player-right-bottom flex">
           <div className="song-duration flex">
-            <p className="duration">0:{Math.round(trackProgress)}</p>
+            <p className="duration">0:{addZero(Math.round(trackProgress))}</p>
             <WaveAnimation isPlaying={isPlaying} />
             <p className="duration">0:30</p>
           </div>
