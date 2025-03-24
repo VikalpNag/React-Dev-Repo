@@ -35,7 +35,7 @@ const Player = () => {
         {currentTrack && currentTrack.album && (
           <AudioPlayer
             currentTrack={currentTrack}
-            isPlaying={true}
+            total={tracks}
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
           />
