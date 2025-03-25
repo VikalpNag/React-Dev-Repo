@@ -1,7 +1,8 @@
 .controls-wrapper {
-  width: 80%;
+  width: 50%;
   margin: 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .action-btn {
@@ -26,7 +27,12 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: inset -4px -4px 10px #55291e, inset 4px 4px 10px 1px #ffae9a;
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.play-pause-btn.active {
+  box-shadow: inset -4px -4px 10px #ff8769, inset 4px 4px 10px 1px #753d30;
 }

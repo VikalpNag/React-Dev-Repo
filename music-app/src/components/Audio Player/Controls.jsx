@@ -1,7 +1,12 @@
 import React from "react";
 import "./controls.css";
 import { IconContext } from "react-icons";
-import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
+import {
+  IoPause,
+  IoPlay,
+  IoPlaySkipBack,
+  IoPlaySkipForward,
+} from "react-icons/io5";
 
 const Controls = ({
   isPlaying,
@@ -17,10 +22,12 @@ const Controls = ({
           <IoPlaySkipBack />
         </div>
         <div
-          className="play-pause-btn flex"
+          className={
+            isPlaying ? "play-pause-btn flex active" : "play-pause-btn flex"
+          }
           onClick={() => setIsPlaying(!isPlaying)}
         >
-          <IoPlay />
+          {isPlaying ? <IoPause /> : <IoPlay />}
         </div>
         <div className="action-btn" onClick={handleNext}>
           <IoPlaySkipForward />
