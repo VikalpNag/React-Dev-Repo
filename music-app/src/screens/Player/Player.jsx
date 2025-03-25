@@ -5,6 +5,7 @@ import apiClient from "../../spotify.js";
 import SongCard from "../../components/songCard/SongCard.jsx";
 import Queue from "../../components/Queue/Queue.jsx";
 import AudioPlayer from "../../components/Audio Player/AudioPlayer.jsx";
+import Widgets from "../../components/Widgets/Widgets.jsx";
 
 const Player = () => {
   const location = useLocation();
@@ -40,6 +41,7 @@ const Player = () => {
             setCurrentIndex={setCurrentIndex}
           />
         )}
+        <Widgets artistId={currentTrack?.album} />
       </div>
       <div className="right-player-body">
         <SongCard album={currentTrack.album} />
