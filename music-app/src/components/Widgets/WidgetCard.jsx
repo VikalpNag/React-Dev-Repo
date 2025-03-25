@@ -12,7 +12,7 @@ const WidgetCard = ({ title, similar, featured, newRelease }) => {
               key={artist?.id}
               title={artist?.name}
               subtitle={artist?.follower?.total}
-              image={artist?.images?.[2]?.url}
+              image={artist?.images[2]?.url}
             />
           ))
         : featured
@@ -21,7 +21,7 @@ const WidgetCard = ({ title, similar, featured, newRelease }) => {
               key={playlist?.id}
               title={playlist?.name}
               subtitle={playlist?.tracks?.total}
-              image={playlist?.images?.[2]?.url}
+              image={playlist?.images[2]?.url}
             />
           ))
         : newRelease?.map((album) => (
@@ -29,7 +29,7 @@ const WidgetCard = ({ title, similar, featured, newRelease }) => {
               key={album?.id}
               title={album?.name}
               subtitle={album?.artist?.[0]?.name}
-              image={album?.images?.[2]?.url}
+              image={album?.images[2]?.url}
             />
           ))}
     </div>
