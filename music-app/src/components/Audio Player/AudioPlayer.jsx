@@ -22,26 +22,26 @@ const AudioPlayer = ({
   const { duration } = audioRef.current || {};
   const currentPercentage = duration ? (trackProgress / duration) * 100 : 0;
 
-  useEffect(() => {
-    if (!audioSrc) {
-      console.warn(
-        "Preview URL not available. Using Spotify link as fallback."
-      );
-      window.open(total[currentIndex]?.track.external_urls?.spotify, "_blank");
-      return;
-    }
+  // useEffect(() => {
+  //   if (!audioSrc) {
+  //     console.warn(
+  //       "Preview URL not available. Using Spotify link as fallback."
+  //     );
+  //     window.open(total[currentIndex]?.track.external_urls?.spotify, "_blank");
+  //     return;
+  //   }
 
-    audioRef.current = new Audio(audioSrc);
-    setTrackProgress(0);
+  //   audioRef.current = new Audio(audioSrc);
+  //   setTrackProgress(0);
 
-    if (isReady.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
-    } else {
-      isReady.current = true;
-    }
-  }, [audioSrc, currentIndex]);
+  //   if (isReady.current) {
+  //     audioRef.current.play();
+  //     setIsPlaying(true);
+  //     startTimer();
+  //   } else {
+  //     isReady.current = true;
+  //   }
+  // }, [audioSrc, currentIndex]);
 
   useEffect(() => {
     if (isPlaying && audioSrc) {
