@@ -16,7 +16,10 @@ const Controls = ({
         <div className="action-btn" onClick={handlePrev}>
           <IoPlaySkipBack />
         </div>
-        <div className="play-pause-btn" onClick={setIsPlaying(!isPlaying)}>
+        <div
+          className="play-pause-btn"
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
           <IoPlay />
         </div>
         <div className="action-btn" onClick={handleNext}>
