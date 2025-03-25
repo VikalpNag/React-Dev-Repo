@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./widgets.css";
-import apiClient from "../../spotify";
+import apiClient, { setClientToken } from "../../spotify";
 import WidgetCard from "./WidgetCard";
 
 export default function Widgets({ artistID }) {
@@ -9,31 +9,24 @@ export default function Widgets({ artistID }) {
   const [newRelease, setNewRelease] = useState([]);
 
   useEffect(() => {
+    setClientToken(); // Ensure token is set before fetching
+
     if (artistID) {
       apiClient
         .get(`/artists/${artistID}/related-artists`)
-        .then((res) => {
-          const a = res.data?.artists.slice(0, 3);
-          setSimilar(a);
-        })
-        .catch((err) => console.error(err));
-
-      apiClient
-        .get(`/browse/featured-playlists`)
-        .then((res) => {
-          const a = res.data?.playlists.items.slice(0, 3);
-          setFeatured(a);
-        })
-        .catch((err) => console.error(err));
-
-      apiClient
-        .get(`/browse/new-releases`)
-        .then((res) => {
-          const a = res.data?.albums.items.slice(0, 3);
-          setNewRelease(a);
-        })
-        .catch((err) => console.error(err));
+        .then((res) => setSimilar(res.data?.artists?.slice(0, 3) || []))
+        .catch((err) => console.error("Error fetching similar artists:", err));
     }
+
+    apiClient
+      .get(`/browse/featured-playlists`)
+      .then((res) => setFeatured(res.data?.playlists?.items?.slice(0, 3) || []))
+      .catch((err) => console.error("Error fetching featured playlists:", err));
+
+    apiClient
+      .get(`/browse/new-releases`)
+      .then((res) => setNewRelease(res.data?.albums?.items?.slice(0, 3) || []))
+      .catch((err) => console.error("Error fetching new releases:", err));
   }, [artistID]);
 
   return (

@@ -13,11 +13,17 @@ const apiClient = axios.create({
   baseURL: "https://api.spotify.com/v1/",
 });
 
-export const setClientToken = (token) => {
-  apiClient.interceptors.request.use(async function (config) {
-    config.headers.Authorization = `Bearer ${token}`;
-    return config;
-  });
+export const setClientToken = () => {
+  const token =
+    localStorage.getItem("spotifyToken") ||
+    new URLSearchParams(window.location.hash).get("access_token");
+
+  if (token) {
+    localStorage.setItem("spotifyToken", token);
+    apiClient.defaults.headers["Authorization"] = `Bearer ${token}`;
+  } else {
+    console.error("No token found! Please log in.");
+  }
 };
 
 export default apiClient;
