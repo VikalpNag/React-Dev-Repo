@@ -12,12 +12,12 @@ const Controls = ({
 }) => {
   return (
     <IconContext.Provider value={{ size: "35px", color: "#C4D0E3" }}>
-      <div className="controls-wrapper">
+      <div className="controls-wrapper flex">
         <div className="action-btn" onClick={handlePrev}>
           <IoPlaySkipBack />
         </div>
         <div
-          className="play-pause-btn"
+          className="play-pause-btn flex"
           onClick={() => setIsPlaying(!isPlaying)}
         >
           <IoPlay />
