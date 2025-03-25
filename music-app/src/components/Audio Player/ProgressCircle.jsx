@@ -45,24 +45,24 @@ export default function ProgressCircle({
             <circle cx="50%" cy="50%" r={size / 2 - 50} fill="#FFFFFF" />
           </clipPath>
           <clipPath id="myInnerCircle">
-            <circle cx="50%" cy="50%" r={size / 2 - 50} fill="#FFFFFF" />
+            <circle cx="50%" cy="50%" r={size / 2 - 80} fill="#FFFFFF" />
           </clipPath>
         </defs>
         <image
           className={isPlaying ? "active" : ""}
-          x={15}
-          y={15}
-          width={2 * (size / 2) - 30}
-          height={2 * (size / 2) - 30}
+          x={25}
+          y={25}
+          width={2 * (size / 2) - 50}
+          height={2 * (size / 2) - 50}
           href="https://pngimg.com/uploads/vinyl/vinyl_PNG109.png"
           clipPath="url(#myCircle)"
         />
         <image
           className={isPlaying ? "active" : ""}
-          x={50}
-          y={50}
-          width={2 * (size / 2) - 100}
-          height={2 * (size / 2) - 100}
+          x={80}
+          y={80}
+          width={2 * (size / 2.5) - 100}
+          height={2 * (size / 2.5) - 100}
           href={image}
           clipPath="url(#myInnerCircle)"
         />
