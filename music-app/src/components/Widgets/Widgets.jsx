@@ -42,7 +42,7 @@ const Widgets = ({ artistId }) => {
   }, [id]);
 
   return (
-    <div className="widgets-body">
+    <div className="widgets-body flex">
       <WidgetCard title="Similar Artists" similar={similar} />
       <WidgetCard title="Made for you" similar={featured} />
       <WidgetCard title="New Release" similar={newRelease} />
