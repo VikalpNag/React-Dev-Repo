@@ -4,6 +4,10 @@ circle {
   transform-origin: 50% 50%;
 }
 
+.svg {
+  margin-left: 40px;
+}
+
 image.active {
   animation: rotation 30s infinite linear;
   transform-origin: 50% 50%;
