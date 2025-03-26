@@ -1,5 +1,5 @@
 import React from "react";
-import { loginEndPoint } from "../../spotify.js";
+import { loginEndpoint } from "../../spotify";
 
 import "./login.css";
 
@@ -11,7 +11,7 @@ const Login = () => {
         alt="logo-spotify"
         className="logo"
       />
-      <a href={loginEndPoint}>
+      <a href={loginEndpoint}>
         <div className="login-btn">LOGIN</div>
       </a>
     </div>
