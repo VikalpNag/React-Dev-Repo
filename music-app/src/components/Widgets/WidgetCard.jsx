@@ -4,24 +4,30 @@ import WidgetEntry from "./WidgetEntry";
 import { IconContext } from "react-icons";
 import { FiChevronRight } from "react-icons/fi";
 
-const WidgetCard = ({ title, newRelease = [] }) => {
+const WidgetCard = ({ title, data = [], type }) => {
   return (
     <div className="WidgetCard-body">
       <p className="widget-title">{title}</p>
 
-      {newRelease.length > 0 &&
-        newRelease.map((album) => (
+      {data.length > 0 &&
+        data.map((item) => (
           <WidgetEntry
-            key={album?.id}
-            title={album?.name}
-            subtitle={album?.artists?.[0]?.name || "Unknown Artist"}
+            key={item?.id}
+            title={item?.name}
+            subtitle={
+              type === "artist"
+                ? `${item?.follower?.total?.toLocaleString()} Followers`
+                : type === "playlist"
+                ? `${item?.tracks?.total} Tracks`
+                : item?.artists?.map((artist) => artist.name).join(", ")
+            }
             image={
-              album?.images?.[2]?.url ||
-              album?.images?.[0]?.url ||
-              "default_image.png"
+              item?.images?.find((img) => img.url)?.url || // Get the first valid image
+              "https://via.placeholder.com/150" // Fallback image
             }
           />
         ))}
+
       <div className="widget-fade">
         <div className="fade-button">
           <IconContext.Provider value={{ size: "24px", color: "#c4d0e3" }}>
