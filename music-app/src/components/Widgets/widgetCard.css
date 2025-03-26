@@ -1,0 +1,13 @@
+.WidgetCard-body {
+  width: 24%;
+  height: 90%;
+  border-radius: 30px;
+  background: rgb(30, 42, 62);
+  background: linear-gradient(
+    75deg,
+    rgb(40, 58, 88) 0%,
+    rgb(54, 69, 98, 0) 100%
+  );
+  padding: 5px 3%;
+  cursor: pointer;
+}

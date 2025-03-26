@@ -7,7 +7,7 @@ const WidgetEntry = ({ title, subtitle, image }) => {
       <img src={image} alt={title} className="entry-image" />
       <div className="entry-right">
         <p className="entry-title">{title}</p>
-        <p className="entry-subtitle"></p>
+        <p className="entry-subtitle">{subtitle}</p>
       </div>
     </div>
   );

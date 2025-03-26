@@ -9,24 +9,16 @@ export default function Widgets({ artistID }) {
   const [newRelease, setNewRelease] = useState([]);
 
   useEffect(() => {
-    setClientToken(); // Ensure token is set before fetching
+    setClientToken();
 
     if (artistID) {
       apiClient
-        .get(`/artists/${artistID}/related-artists`)
-        .then((res) => setSimilar(res.data?.artists?.slice(0, 3) || []))
-        .catch((err) => console.error("Error fetching similar artists:", err));
+        .get(`/browse/new-releases`)
+        .then((res) =>
+          setNewRelease(res.data?.albums?.items?.slice(0, 3) || [])
+        )
+        .catch((err) => console.error("Error fetching new releases:", err));
     }
-
-    apiClient
-      .get(`/browse/featured-playlists`)
-      .then((res) => setFeatured(res.data?.playlists?.items?.slice(0, 3) || []))
-      .catch((err) => console.error("Error fetching featured playlists:", err));
-
-    apiClient
-      .get(`/browse/new-releases`)
-      .then((res) => setNewRelease(res.data?.albums?.items?.slice(0, 3) || []))
-      .catch((err) => console.error("Error fetching new releases:", err));
   }, [artistID]);
 
   return (

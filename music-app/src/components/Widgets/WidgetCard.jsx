@@ -2,12 +2,7 @@ import React from "react";
 import "./widgetCard.css";
 import WidgetEntry from "./WidgetEntry";
 
-const WidgetCard = ({
-  title,
-  similar = [],
-  featured = [],
-  newRelease = [],
-}) => {
+const WidgetCard = ({ title, newRelease = [] }) => {
   return (
     <div className="WidgetCard-body">
       <p className="widget-title">{title}</p>
