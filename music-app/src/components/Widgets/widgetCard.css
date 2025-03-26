@@ -1,4 +1,5 @@
 .WidgetCard-body {
+  position: relative;
   width: 24%;
   height: 90%;
   border-radius: 30px;
@@ -10,4 +11,39 @@
   );
   padding: 5px 3%;
   cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.widget-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #c4d0e3;
+}
+
+.widget-fade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 84%;
+  height: 34%;
+  border-radius: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(54, 69, 98, 0) 10%,
+    rgba(54, 69, 98, 1) 100%
+  );
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+  animation: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 8%;
+
+  &:hover {
+    opacity: 1;
+  }
 }

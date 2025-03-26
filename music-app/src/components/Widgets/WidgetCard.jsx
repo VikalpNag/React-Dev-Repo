@@ -1,6 +1,8 @@
 import React from "react";
 import "./widgetCard.css";
 import WidgetEntry from "./WidgetEntry";
+import { IconContext } from "react-icons";
+import { FiChevronRight } from "react-icons/fi";
 
 const WidgetCard = ({ title, newRelease = [] }) => {
   return (
@@ -20,6 +22,13 @@ const WidgetCard = ({ title, newRelease = [] }) => {
             }
           />
         ))}
+      <div className="widget-fade">
+        <div className="fade-button">
+          <IconContext.Provider value={{ size: "24px", color: "#c4d0e3" }}>
+            <FiChevronRight />
+          </IconContext.Provider>
+        </div>
+      </div>
     </div>
   );
 };
