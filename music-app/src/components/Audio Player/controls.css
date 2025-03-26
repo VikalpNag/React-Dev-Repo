@@ -1,7 +1,7 @@
 .controls-wrapper {
   width: 50%;
   margin: 0px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 

@@ -42,8 +42,8 @@
   align-items: flex-end;
   justify-content: flex-end;
   padding: 8%;
+}
 
-  &:hover {
-    opacity: 1;
-  }
+.WidgetCard-body:hover .widget-fade {
+  opacity: 1;
 }
